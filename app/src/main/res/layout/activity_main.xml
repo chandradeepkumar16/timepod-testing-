@@ -74,12 +74,30 @@
                 </Button>
             </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/leftcornerbg"
                 android:layout_marginTop="110dp"
-                ></LinearLayout>
+                android:padding="20dp"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/recycler"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No result found"
+                    android:textColor="@color/black"
+                    android:layout_centerInParent="true"
+                    android:textSize="25dp"
+                    android:id="@+id/tv_no_result"/>
+
+            </RelativeLayout>
         </RelativeLayout>
 
     </LinearLayout>
