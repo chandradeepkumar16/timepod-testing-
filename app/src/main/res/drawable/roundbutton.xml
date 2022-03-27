@@ -7,10 +7,13 @@
             <solid android:color="@android:color/primary_text_dark"/>
         </shape>
     </item>
-
+    <gradient
+        android:angle="270"
+        android:endColor="@color/orangish"
+        android:startColor="@color/pinkish" />
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="10dp"/>
+            <corners android:radius="50dp"/>
             <solid android:color="@color/white"/>
         </shape>
     </item>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="15dp"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/black"
+    >
+
+    <RelativeLayout
+        android:id="@+id/testrec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:background="@color/black"
+        >
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/todocheckbox"
+            android:layout_width="37dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:buttonTint="@color/pinkish"
+            android:checked="true">
+
+
+        </com.google.android.material.checkbox.MaterialCheckBox>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@+id/todocheckbox"
+            android:layout_toRightOf="@+id/todocheckbox"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_alignRight="@+id/textView"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

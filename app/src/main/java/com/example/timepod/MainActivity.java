@@ -59,12 +59,14 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
 
     private String TAG = MainActivity.class.getSimpleName();
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
 
 //        getSupportActionBar().setTitle(" ");
 //        toolbartitle.setText("ToDo list");
