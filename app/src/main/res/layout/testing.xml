@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="23dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="18dp"
             android:fontFamily="sans-serif-medium"
             android:text="today"
             android:textColor="@color/white"
@@ -28,8 +28,8 @@
 
         <ImageView
             android:id="@+id/btn_add_task"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="280dp"
             android:layout_marginTop="70dp"
             app:srcCompat="@drawable/second" />
@@ -55,8 +55,10 @@
         <include
             layout="@layout/testhorizontalrec"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="420dp"
             android:layout_below="@id/task_count"
+
+
             />
 
         <ImageView
@@ -77,24 +79,6 @@
             android:layout_toRightOf="@+id/today_title1"
             app:srcCompat="@drawable/event_24px_outlined" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/task_count"
-            android:layout_marginTop="180dp"
-            android:text="Today's tasks"
-            android:layout_marginLeft="23dp"
-            android:id="@+id/task_counting"
-            android:textColor="@color/white"></TextView>
-
-        <!--        <include-->
-        <!--            layout="@layout/testrecycler"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_below="@+id/task_count"-->
-        <!--            android:layout_marginTop="237dp">-->
-
-        <!--        </include>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -104,16 +88,7 @@
             android:id="@+id/recycler"
             android:padding="20dp"
             >
-            <!--                <androidx.recyclerview.widget.RecyclerView-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:id="@+id/recycler"/>-->
-            <include
-                layout="@layout/testrecycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-            </include>
 
             <TextView
                 android:visibility="gone"
@@ -127,23 +102,6 @@
 
         </RelativeLayout>
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/btn_add_task"-->
-        <!--            android:layout_width="70dp"-->
-        <!--            android:layout_height="70dp"-->
-        <!--            android:layout_below="@+id/task_count"-->
-        <!--            android:layout_alignParentStart="true"-->
-        <!--            android:layout_alignParentLeft="true"-->
-        <!--            android:layout_alignParentEnd="true"-->
-        <!--            android:layout_alignParentRight="true"-->
-        <!--            android:layout_alignParentBottom="true"-->
-        <!--            android:layout_marginStart="23dp"-->
-        <!--            android:layout_marginLeft="23dp"-->
-        <!--            android:layout_marginTop="463dp"-->
-        <!--            android:layout_marginEnd="302dp"-->
-        <!--            android:layout_marginRight="302dp"-->
-        <!--            android:layout_marginBottom="38dp"-->
-        <!--            app:srcCompat="@drawable/second" />-->
 
         <ImageView
             android:id="@+id/imageView5"
