@@ -4,22 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEditTask">
-
+    tools:context=".AddEditTask"
+    android:background="@color/black"
+    >
 
     <LinearLayout
         android:id="@+id/bgfornew"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/taskbg1"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:background="@drawable/bgimg"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
 
 
         <ImageView
             android:id="@+id/createnewimg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             app:srcCompat="@drawable/head">
 
@@ -33,10 +38,10 @@
 
             <EditText
                 android:id="@+id/et_title"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:hint="enter the task title"
+                android:hint="Task Name"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -49,15 +54,15 @@
 
             <ImageView
                 android:id="@+id/timeicon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_access_time_24"
-                app:tint="@color/white"
-                tools:ignore="MissingConstraints,VectorDrawableCompat" />
+                android:layout_width="22dp"
+                android:layout_height="20.61dp"
+                android:layout_marginTop="-35dp"
+                android:src="@drawable/ic_baseline_access_time_24"
+                app:tint="@color/white" />
 
             <EditText
                 android:id="@+id/et_time"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:fontFamily="sans-serif-medium"
@@ -75,18 +80,16 @@
 
             <ImageView
                 android:id="@+id/calicon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/ic_baseline_calendar_today_24"
-                app:tint="@color/white"
-                tools:ignore="MissingConstraints,VectorDrawableCompat" />
+                android:layout_width="22dp"
+                android:layout_height="20.61dp"
+                android:layout_marginTop="-35dp"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                app:tint="@color/white" />
 
 
             <EditText
                 android:id="@+id/et_date"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:fontFamily="sans-serif-medium"
@@ -96,14 +99,20 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/roundbutton"
-            android:text="Save" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="279dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="12dp"
+        android:background="@android:color/transparent"
+        android:text="Add new Task"
+        app:layout_constraintBottom_toBottomOf="@+id/bgfornew"
+        app:layout_constraintEnd_toEndOf="@+id/bgfornew"
+        app:layout_constraintStart_toStartOf="@+id/bgfornew" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
