@@ -2,9 +2,11 @@ package com.example.timepod;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +39,11 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
     @BindView(R.id.et_time)
     EditText ettime;
 
+    @BindView(R.id.btn_save)
+    Button btn_save;
+
     private AppDatabase db;
+    public TaskItem parmitem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +52,13 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
         ButterKnife.bind(this);
         db=AppDatabase.getDatabase(this);
 
+        parmitem= (TaskItem) getIntent().getSerializableExtra("item");
 
+        if(parmitem!=null){
+            ettitle.setText(parmitem.title);
+            ettime.setText(parmitem.time);
+            etdate.setText(parmitem.date);
+        }
     }
 
     @OnClick(R.id.btn_save) void clickSave(){
@@ -55,14 +67,25 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
         etdate.getText().toString().length()<=0){
             Toast.makeText(this, "please fill the required field", Toast.LENGTH_SHORT).show();
         }else{
-            TaskItem taskItem=new TaskItem();
-            taskItem.title= ettitle.getText().toString();
-            taskItem.date=etdate.getText().toString();
-            taskItem.time=ettime.getText().toString();
-            new AddTask(taskItem).execute();
+
+            if(parmitem!=null){
+                parmitem.title=ettitle.getText().toString();
+                parmitem.date=etdate.getText().toString();
+                parmitem.time=ettime.getText().toString();
+                new AddTask(parmitem).execute();
+            }else{
+                TaskItem taskItem=new TaskItem();
+                taskItem.title= ettitle.getText().toString();
+                taskItem.date=etdate.getText().toString();
+                taskItem.time=ettime.getText().toString();
+                new AddTask(taskItem).execute();
+            }
+
         }
 
     }
+
+
 
     @OnClick(R.id.et_date) void chooseDate(){
         CustomDialogUtil.showDatePickerDialog(this,this);
@@ -72,6 +95,10 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
         CustomDialogUtil.showTimePicker(this,this);
     }
 
+
+    @OnClick(R.id.btn_save) void save(){
+        startActivity(new Intent(this,MainActivity.class));
+    }
     @Override
     public void selectedDate(String dateString) {
         etdate.setText(dateString);
@@ -97,7 +124,11 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
 
         @Override
         protected Void doInBackground(Void... voids) {
-            db.taskDao().insertTask(taskItem);
+
+            if(parmitem!=null)
+                db.taskDao().updateTask(taskItem);
+            else
+                db.taskDao().insertTask(taskItem);
             return null;
         }
 
@@ -109,4 +140,6 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
             ettitle.setText("");
         }
     }
+
+
 }

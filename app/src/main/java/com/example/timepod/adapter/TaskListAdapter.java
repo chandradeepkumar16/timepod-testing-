@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +13,12 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timepod.R;
+import com.example.timepod.callback.ActionCallback;
 import com.example.timepod.database.TaskItem;
 
 import java.util.List;
 
+import butterknife.BindInt;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,10 +26,11 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
     Context context;
     List<TaskItem> data;
-
-    public TaskListAdapter(Context context, List<TaskItem> data) {
+    ActionCallback.TaskitemClicks callback;
+    public TaskListAdapter(Context context, List<TaskItem> data , ActionCallback.TaskitemClicks callback) {
         this.context = context;
         this.data = data;
+        this.callback=callback;
     }
 
     @NonNull
@@ -45,6 +49,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                callback.clickItem(data.get(position), v);
 
             }
         });
