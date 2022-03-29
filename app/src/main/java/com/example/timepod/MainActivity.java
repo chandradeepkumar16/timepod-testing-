@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
                     case R.id.menu_delete:
                         new DeleteTask(taskItem).execute();
                         break;
-                    case R.id.completed:
-//                        mytasklayout.setBackgroundResource(R.color.taskbg);
-                        break;
+//                    case R.id.completed:
+////                        mytasklayout.setBackgroundResource(R.color.taskbg);
+//                        break;
                 }
                 return true;
             }

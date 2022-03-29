@@ -6,8 +6,8 @@
     <item android:id="@+id/menu_delete"
         android:title="Delete"/>
 
-    <item android:id="@+id/completed"
-        android:title="Completed"/>
+<!--    <item android:id="@+id/completed"-->
+<!--        android:title="Completed"/>-->
 
 
 </menu>

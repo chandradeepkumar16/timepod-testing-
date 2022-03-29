@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -20,12 +22,13 @@ import com.example.timepod.utils.CustomDialogUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 @SuppressWarnings("ALL")
 public class AddEditTask extends AppCompatActivity implements ActionCallback.DatePickerCallback , ActionCallback.TimerPickerCallBack {
 
-    @BindView(R.id.toolbar_title)
-    TextView toolbarTitle;
+//    @BindView(R.id.toolbar_title)
+//    TextView toolbarTitle;
 
 //    @BindView(R.id.toolbar)
 //    Toolbar toolbar;
@@ -33,21 +36,34 @@ public class AddEditTask extends AppCompatActivity implements ActionCallback.Dat
     @BindView(R.id.et_title)
     EditText ettitle;
 
+    @BindView(R.id.bgfornew)
+    LinearLayout linearLayout;
+
+    @BindView(R.id.createnewimg)
+    ImageView createnewimg;
+
     @BindView(R.id.et_date)
     EditText etdate;
 
     @BindView(R.id.et_time)
     EditText ettime;
 
+    @BindView(R.id.calicon)
+    ImageView calicon;
+
+    @BindView(R.id.timeicon)
+    ImageView timeicon;
+
     @BindView(R.id.btn_save)
     Button btn_save;
+//    ImageView btn_save;
 
     private AppDatabase db;
     public TaskItem parmitem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_task);
+        setContentView(R.layout.activity_add_task);
 
         ButterKnife.bind(this);
         db=AppDatabase.getDatabase(this);

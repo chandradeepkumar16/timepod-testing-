@@ -13,14 +13,15 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:id="@+id/mytasks"
-        android:background="#50CCB7">
+        android:background="@color/taskbg2"
+        >
 
         <TextView
             android:id="@+id/task_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Task Name"
-            android:textColor="#0C0C0C"
+            android:textColor="@color/black"
             android:textStyle="bold"></TextView>
 
         <LinearLayout
@@ -29,19 +30,23 @@
             android:orientation="horizontal"
             android:layout_below="@id/task_name"
             android:layout_marginTop="10dp"
+
             >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_clock"/>
+                android:src="@drawable/ic_clock"
+                />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Time"
                 android:id="@+id/time"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 
@@ -55,5 +60,8 @@
             android:id="@+id/iv_more"
             />
     </RelativeLayout>
+
+
+
 
 </androidx.cardview.widget.CardView>
