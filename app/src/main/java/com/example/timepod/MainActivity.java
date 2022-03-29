@@ -5,15 +5,20 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Update;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -32,7 +37,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements ActionCallback.DatePickerCallback {
+public class MainActivity extends AppCompatActivity implements ActionCallback.DatePickerCallback , ActionCallback.TaskitemClicks {
 
 //    @BindView(R.id.toolbar)
 //    Toolbar toolbar;
@@ -63,20 +68,18 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.testing);
         ButterKnife.bind(this);
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.black));
 
-//        getSupportActionBar().setTitle(" ");
-//        toolbartitle.setText("ToDo list");
 
         db=AppDatabase.getDatabase(this);
         chooseDate=Dataconfig.getCurrentDate(this);
         alltasks= new ArrayList<>();
         alltasks.clear();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new TaskListAdapter(this, alltasks);
+        adapter=new TaskListAdapter(this, alltasks , this);
         recyclerView.setAdapter(adapter);
 
         Log.e(TAG, "Current Date " + Dataconfig.getCurrentDate(this));
@@ -93,7 +96,8 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home_menu,menu);
+        MenuInflater menuInflater=getMenuInflater();
+        menuInflater.inflate(R.menu.home_menu,menu);
         return true;
     }
 
@@ -118,6 +122,34 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         chooseDate=dateString;
         new FetchTask(dateString).execute();
     }
+
+
+
+    @Override
+    public void clickItem(TaskItem taskItem, View view) {
+        PopupMenu popupMenu = new PopupMenu(this,view);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu,  popupMenu.getMenu());
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menu_edit:
+                        startActivity(new Intent(MainActivity.this , AddEditTask.class)
+                        .putExtra("item ", taskItem));
+                        break;
+                    case R.id.menu_delete:
+                        new DeleteTask(taskItem).execute();
+                        break;
+                    case R.id.completed:
+//                        mytasklayout.setBackgroundResource(R.color.taskbg);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
 
     class FetchTask extends AsyncTask<Void , Void , Void>{
         String dateString;
@@ -147,6 +179,28 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
 
             adapter.notifyDataSetChanged();
 
+        }
+    }
+
+    class DeleteTask extends AsyncTask<Void , Void , Void>{
+        TaskItem taskItem;
+
+        public DeleteTask(TaskItem taskItem){
+            this.taskItem=taskItem;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            db.taskDao().deleteTask(taskItem);
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            super.onPostExecute(unused);
+            alltasks.clear();
+            new FetchTask(chooseDate).execute();
         }
     }
 
