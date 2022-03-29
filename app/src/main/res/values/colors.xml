@@ -13,4 +13,5 @@
     <color name="taskbg">#EE8F49</color>
     <color name="taskbg2">#F0635A</color>
     <color name="newtask">#C8BCB4</color>
+    <color name="yellow">#DAC508</color>
 </resources>

@@ -26,13 +26,6 @@
             android:textColor="@color/white"
             android:textSize="60dp" />
 
-        <ImageView
-            android:id="@+id/btn_add_task"
-            android:layout_width="60dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="70dp"
-            app:srcCompat="@drawable/second" />
 
         <TextView
             android:id="@+id/task_count"
@@ -57,8 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="420dp"
             android:layout_below="@id/task_count"
-
-
             />
 
         <ImageView
@@ -101,6 +92,13 @@
                 android:id="@+id/tv_no_result"/>
 
         </RelativeLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav"
+            />
 
 
     </RelativeLayout>

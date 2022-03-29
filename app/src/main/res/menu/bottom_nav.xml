@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="home"
+        android:icon="@drawable/createbutton"
+        />
+
+    <item
+        android:id="@+id/progress"
+        android:title="progress"
+        android:icon="@drawable/ic_baseline_electric_bolt_24"
+        />
+
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        android:icon="@drawable/insert_emoticon_24px_outlined"
+        />
+
+</menu>

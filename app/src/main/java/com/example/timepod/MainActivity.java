@@ -5,10 +5,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Update;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,9 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.example.timepod.adapter.TaskListAdapter;
 import com.example.timepod.callback.ActionCallback;
@@ -108,8 +104,16 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         return true;
     }
 
-    @OnClick(R.id.btn_add_task) void clickAddTask(){
+    @OnClick(R.id.home) void clickAddTask(){
         startActivity(new Intent(this,AddEditTask.class));
+    }
+
+    @OnClick(R.id.progress) void clickProgressActivity(){
+        startActivity(new Intent(this, ProgressActivity.class));
+    }
+
+    @OnClick(R.id.profile) void clickProfileActivity(){
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override
