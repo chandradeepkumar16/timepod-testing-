@@ -29,24 +29,212 @@
         android:layout_alignTop="@+id/profilebg"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/profilehead" />
+        app:srcCompat="@drawable/profilehead"   />
 
-    <TextView
-        android:id="@+id/settingstext"
-        android:layout_width="62dp"
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="508dp"
+        android:layout_below="@+id/profileheading"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/tellyourfriendicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/tellyourfriend" />
+
+            <TextView
+                android:id="@+id/tellyourfriendtext"
+                android:layout_width="194dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="40dp"
+                android:text="Tell your friend"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/setatimericon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_access_time_24"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/setatimertext"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Set a timer"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/pomodoroicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/pomodorotimer" />
+
+            <TextView
+                android:id="@+id/pomodorotext"
+                android:layout_width="140dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Pomodoro timer"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/helpicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/help" />
+
+            <TextView
+                android:id="@+id/helptext"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Help"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/darkmodeicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/darkmode" />
+
+            <TextView
+                android:id="@+id/darkmodetext"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Dark Mode"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/addnotesicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/addnotes" />
+
+            <TextView
+                android:id="@+id/addnotestext"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Add notes"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp">
+
+            <ImageView
+                android:id="@+id/settingsicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/settings" />
+
+            <TextView
+                android:id="@+id/settingstext"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="40dp"
+                android:text="Settings"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/profilebackbtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/profilebg"
-        android:layout_alignLeft="@+id/profilebg"
         android:layout_alignTop="@+id/profilebg"
-        android:layout_alignEnd="@+id/profilebg"
-        android:layout_alignRight="@+id/profilebg"
-        android:layout_marginStart="94dp"
-        android:layout_marginLeft="94dp"
-        android:layout_marginTop="194dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginRight="156dp"
-        android:text="Settings"
-        android:textColor="@color/white" />
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="53dp"
+        android:layout_toEndOf="@+id/profileheading"
+        android:layout_toRightOf="@+id/profileheading"
+        app:srcCompat="@drawable/profileback" />
 
 
 </RelativeLayout>
